@@ -1,0 +1,23 @@
+{
+  "name": "prueba_meridian",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jusevesi/test_Meridian.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jusevesi/test_Meridian/issues"
+  },
+  "homepage": "https://github.com/jusevesi/test_Meridian#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
