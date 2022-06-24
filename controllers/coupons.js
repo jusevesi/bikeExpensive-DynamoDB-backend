@@ -5,7 +5,7 @@ const getCoupons = async(req, res) => {
         const { id } = req.params;
         const couponService = new CouponService();
         const response = await couponService.getCoupons(id);
-        res.json(response)
+        res.json(response);
     } catch (error) {
         console.log(error);
         res.status(error.statusCode || 500)

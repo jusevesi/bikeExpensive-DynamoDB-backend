@@ -7,9 +7,9 @@ class CouponService {
 
     async getCoupons() {
         try {
-            const coupon = await getCouponsFromDb();
+            const coupons = await getCouponsFromDb();
             return {
-                coupon
+                coupons
             };
         } catch (error) {
             throw error;
