@@ -7,14 +7,15 @@ AWS.config.update({
 });
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
-const TABLE_NAME1 = 'products';
-const TABLE_NAME2 = 'coupons';
+const TABLE_PRODUCTS = 'products';
+const TABLE_COUPONS = 'coupons';
+const TABLE_INVOICES = 'invoices';
 
 
 const getProductsFromDb = async () => {
     try {
         const params = {
-            TableName: TABLE_NAME1
+            TableName: TABLE_PRODUCTS
         };
         const products = await dynamoClient.scan(params).promise();
         return products.Items;
@@ -26,7 +27,7 @@ const getProductsFromDb = async () => {
 const getCouponsFromDb = async () => {
     try {
         const params = {
-            TableName: TABLE_NAME2
+            TableName: TABLE_COUPONS
         };
         const coupon = await dynamoClient.scan(params).promise();
         return coupon.Items;
@@ -35,7 +36,21 @@ const getCouponsFromDb = async () => {
     }
 };
 
+const updateInvoiceInDb = async (invoice) => {
+    try {
+        const params = {
+            TableName: TABLE_INVOICES,
+            Item: invoice,
+        };
+        const response = await dynamoClient.put(params).promise();
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports= {
     getProductsFromDb,
-    getCouponsFromDb
+    getCouponsFromDb,
+    updateInvoiceInDb
 };
