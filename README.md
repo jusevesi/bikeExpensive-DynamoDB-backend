@@ -29,3 +29,7 @@ Tests. Execute test
 ```sh
 npm run test
 ```  
+Note: You can check the web app working in heroku in the following link:
+```sh
+https://meridian-test-frontend.herokuapp.com/products
+```
