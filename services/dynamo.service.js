@@ -7,21 +7,35 @@ AWS.config.update({
 });
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
-const TABLE_NAME = 'products';
+const TABLE_NAME1 = 'products';
+const TABLE_NAME2 = 'coupons';
 
-const getProductFromDb = async (id) => {
+
+const getProductsFromDb = async () => {
     try {
         const params = {
-            TableName: TABLE_NAME,
-            Key:{
-                id
-            }
+            TableName: TABLE_NAME1
         };
-        const product = await dynamoClient.scan(params).promise();
-        return product.Items.find(element => element.id === +id) ;
+        const products = await dynamoClient.scan(params).promise();
+        return products.Items;
     } catch (error) {
         throw error;
     }
 };
 
-module.exports= getProductFromDb;
+const getCouponsFromDb = async () => {
+    try {
+        const params = {
+            TableName: TABLE_NAME2
+        };
+        const coupon = await dynamoClient.scan(params).promise();
+        return coupon.Items;
+    } catch (error) {
+        throw error;
+    }
+};
+
+module.exports= {
+    getProductsFromDb,
+    getCouponsFromDb
+};

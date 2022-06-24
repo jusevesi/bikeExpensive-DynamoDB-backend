@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jusevesi/test_Meridian#readme",
   "dependencies": {
     "aws-sdk": "^2.1161.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1"
   }
 }

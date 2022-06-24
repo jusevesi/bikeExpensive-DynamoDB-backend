@@ -1,13 +1,15 @@
-const getProductFromDb = require("./dynamo.service");
+const { getProductsFromDb } = require("./dynamo.service");
+
 
 class ProductService {
+    
     constructor() { }
 
-    async getProductById(id) {
+    async getProducts() {
         try {
-            const product = await getProductFromDb(id);
+            const products = await getProductsFromDb();
             return {
-                product
+                products
             };
         } catch (error) {
             throw error;
