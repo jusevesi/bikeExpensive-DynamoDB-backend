@@ -1,6 +1,6 @@
-# Test Meridian Backend
+# BikeExpensive Backend
 
-This repository contains the backend in node.js for the Meridian development test.
+This repository contains the backend in node.js for BikeExpensive.
 
 ## Steps to execute the project
 1. Install node js
